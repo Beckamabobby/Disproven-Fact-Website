@@ -164,7 +164,7 @@
                 <td>table thing</td><td>idk</td>
             </tr>
             <tr>
-                <td>uhhhhhh</td><td>what</td>
+                <td id="test"></td><td>what</td>
             </tr>
             <tr>
                 <td></td><td></td>
@@ -172,9 +172,13 @@
         </table>
     </center>
 
-    <p>uhhhhhhhhhhh</p>
+    <h1><p id="test"></p></h1>
 
     </main>
+
+    <script>
+        document.getElementById("test").innerHTML = Math.floor(Math.random() * 2) + 1;
+    </script>
 
 </body>
 </html>
