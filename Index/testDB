@@ -1,0 +1,5 @@
+CREATE TABLE Facts (
+    FactText string,
+    Link string,
+    Score int,
+);
