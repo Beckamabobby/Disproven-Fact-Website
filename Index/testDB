@@ -1,6 +1,0 @@
-CREATE TABLE Facts (
-    FactText string,
-    Link string,
-    Year int,
-    Score int,
-);
