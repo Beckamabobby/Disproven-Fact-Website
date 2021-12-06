@@ -20,8 +20,10 @@ db.create_all()
 @app.route('/')
 def index():
     myths: List[Dict[str, str]] = [
-        {'title': 'Birds are real', 'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'},
-        {'title': 'Birds are fake', 'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}
+        {'title': 'Birds are real', 'synopsis': 'Government literally 1984',
+            'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'},
+        {'title': 'Birds are fake', 'synopsis': 'Are you stupid',
+            'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}
     ]
     return render_template('index.html', myths=myths)
 
