@@ -99,6 +99,9 @@
         background-color: aliceblue;
       }
     </style>
+
+
+
   </head>
   <body>
     <header>
@@ -129,7 +132,7 @@
             <option value="1981">1981</option>
             <option value="1982">1982</option>
             <option value="1983">1983</option>
-            <option value="1984">literallly 1984</option>
+            <option value="1984">1984</option>
             <option value="1985">1985</option>
             <option value="1986">1986</option>
             <option value="1987">1987</option>
@@ -157,7 +160,7 @@
             <option value="2009">2009</option>
             <option value="2010">2010</option>
           </select>
-          <input class="button button2" type="submit" />
+          <input class="button button2" type="submit"/>
         </form>
       </div>
 
@@ -180,13 +183,19 @@
         </table>
       </center>
 
-      <h1><p id="test"></p></h1>
+      <h1><p id="year"></p></h1>
     </div>
 
-    <!-- <script>
+    <script>
       document.getElementById("test").innerHTML =
         Math.floor(Math.random() * 2) + 1;
-    </script> -->
+    </script>
+
+    <script>
+        function validateForm() {
+            let year = document.forms.value
+        }
+        </script>
 
     <?php 
     $text = "PHP";
