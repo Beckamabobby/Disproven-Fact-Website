@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Disproven Facts</title>
     <style>
-        body {
-            background-color: #444444;
-        }
+      body {
+        background-color: #444444;
+      }
 
-        header {
-            border: 2px solid darkgreen;
-            height: 60px;
-            background-color: darkgreen;
-            border-radius: 10px;
-            padding: 20px;
-            color: blueviolet;
-        }
+      header {
+        border: 2px solid darkgreen;
+        height: 60px;
+        background-color: darkgreen;
+        border-radius: 10px;
+        padding: 20px;
+        color: blueviolet;
+      }
 
-        .main {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 70px;
-            margin-left: 5%;
-            width: 70%;
-            text-align: center;
-        }
+      .main {
+        position: absolute;
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 70px;
+        margin-left: 5%;
+        width: 70%;
+        text-align: center;
+      }
 
-        .button {
-            background-color: aqua;
-            color: black;
-            transition-duration: 0.4s;
-            border-color: aqua;
-        }
+      .button {
+        background-color: aqua;
+        color: black;
+        transition-duration: 0.4s;
+        border-color: aqua;
+      }
 
-        .button:hover {
-            background-color: white;
-            border-color: aqua;
-        }
+      .button:hover {
+        background-color: white;
+        border-color: aqua;
+      }
 
         .button1 {
             background-color: darkgreen;
@@ -47,64 +48,66 @@
             color: white;
             transition-duration: 0.4s;
             float: right;
-
-        }
+      }
 
         .button1:hover {
             background-color: #444444;
             border-color: darkgreen;
         }
 
-        .button2 {
-            font-size: 34px;
-        }
+      .button2 {
+        font-size: 34px;
+      }
 
-        a:link {
-            color: white;
-            text-decoration: none;
-        }
+      a:link {
+        color: white;
+        text-decoration: none;
+      }
 
-        a:visited, a:active {
-            text-decoration: none;
-            color: white;
-        }
+      a:visited,
+      a:active {
+        text-decoration: none;
+      }
 
-        select {
-            font-size: 34px;
-        }
+      select {
+        font-size: 34px;
+      }
 
-        table {
-            width: 70%;
-            border: 2px solid #444444;
-        }
+      table {
+        width: 70%;
+        border: 2px solid #444444;
+      }
 
-        table, td {
-            text-align: center;
-            border-collapse: collapse;
-            margin: 20px;
-            padding: 20px;
-            width: 50%;
-        }
+      table,
+      td {
+        text-align: center;
+        border-collapse: collapse;
+        margin: 20px;
+        padding: 20px;
+        width: 50%;
+      }
 
-        td {
-            border-top: solid 2px #444444;
-            padding: 20px;
-        }
+      td {
+        border-top: solid 2px #444444;
+        padding: 20px;
+      }
 
-        tr:nth-child(even) {
-            background-color: aliceblue;
-        }
-
+      tr:nth-child(even) {
+        background-color: aliceblue;
+      }
     </style>
-</head>
-<body>
-<header>
+
+
+
+  </head>
+  <body>
+    <header>
     <button class="button button1"><a href="https://forms.gle/J1Thc5r1d9mTvLA96">Submit a disproven fact you were
         taught</a></button>
-</header>
+    </header>
 
 <div class="main">
-    <div style="text-align: center;">
+      <div style="text-align: center">
         <form action="Results.html">
             <label>Select the year you graduated high school:</label>
             <label for="years"></label><select id="years" name="years">
@@ -150,7 +153,7 @@
             <option value="2009">2009</option>
             <option value="2010">2010</option>
         </select>
-            <input class="button button2" type="submit">
+          <input class="button button2" type="submit"/>
         </form>
     </div>
 
@@ -159,28 +162,35 @@
     <table>
         <tr>
             <th>Myth</th>
+            <th>Synopsis</th>
             <th>More info</th>
         </tr>
         {% for myth in myths %}
         <tr>
             <td>{{ myth.title }}</td>
-            <td><a href="{{ myth.url }}">{{ myth.url }}</a></td>
+            <td>{{ myth.synopsis }}</td>
+            <td><button class="button button2"><a href="{{ myth.url }}">Learn more</a></td>
         </tr>
         {% endfor %}
     </table>
 
     <h1 id="test"></h1>
 
-</div>
+    </div>
 
 <script>
-    document.getElementById("test").innerHTML = Math.floor(Math.random() * 2) + 1;
+      document.getElementById("test").innerHTML =
+        Math.floor(Math.random() * 2) + 1;
+    </script>
+
+    <script>
+        function validateForm() {
+            let year = document.forms.value
+        }
 </script>
 
 <?php
     $text = "PHP";
     echo "I love $txt!";
-    >
-
-</body>
+    ></body>
 </html>
