@@ -20,7 +20,7 @@ myths_list: List[Dict[str, str]] = [
     {'title': 'Birds are real', 'synopsis': 'Government literally 1984',
         'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1970', 'endyear': '1990'},
     {'title': 'Birds are fake', 'synopsis': 'Are you stupid',
-        'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1972', 'endyear': '1984'}
+        'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1972', 'endyear': '1983'}
 ]
 
 @app.route('/')
@@ -30,8 +30,8 @@ def index():
 @app.route('/myths/<graduation_year>')
 def myths(graduation_year):
     print(graduation_year)
-    # TODO filter by graduation year
-    return jsonify(myths_list)
+    selected_myths = [myth for myth in myths_list if myth['startyear'] <= graduation_year <= myth['endyear']]
+    return jsonify(selected_myths)
 
 #ooga booga
 

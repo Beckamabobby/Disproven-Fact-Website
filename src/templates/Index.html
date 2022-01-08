@@ -107,7 +107,7 @@
 <div class="main">
     <label>Select the year you graduated high school:</label>
     <label for="years"></label>
-    <select id="years" name="years" onChange="alert('hi')">
+    <select id="years" name="years" onChange="processYearChange('1984')">
         <option value="1970">1970</option>
         <option value="1971">1971</option>
         <option value="1972">1972</option>
@@ -180,9 +180,13 @@
     //  let year = document.forms.value
     //}
 
-    fetch('myths/1984')
-        .then(response => response.json())
-        .then(data => console.log(data));
+
+    function processYearChange(year) {
+        fetch('myths/' + year)
+            .then(response => response.json())
+            .then(data => console.log('fetched', data));
+        console.log('after fetch')
+    }
 </script>
 
 <?php
