@@ -1,4 +1,5 @@
 from typing import Dict, List
+from random import choice
 
 from flask import Flask, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
@@ -23,9 +24,23 @@ myths_list: List[Dict[str, str]] = [
         'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1972', 'endyear': '1983'}
 ]
 
+words: List[str] = 'defenestration amongus red chair fly'.split()
+messages: List[str] = [
+    'pay your taxes',
+    'i hate the irs'
+]
+
 @app.route('/')
 def index():
     return render_template('index.html', myths=myths_list)
+
+@app.route('/simple')
+def simple():
+    return render_template('simple.html', word=choice(words))
+
+@app.route('/chat_messages')
+def chat_messages():
+    return render_template('chat_messages.html', messages=messages)
 
 @app.route('/myths/<graduation_year>')
 def myths(graduation_year):

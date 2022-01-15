@@ -152,20 +152,24 @@
     </select>
 
     <table>
-        <tr>
-            <th>Myth</th>
-            <th>Synopsis</th>
-            <th>More info</th>
-        </tr>
-        {% for myth in myths %}
-        <tr>
-            <td>{{ myth.title }}</td>
-            <td>{{ myth.synopsis }}</td>
-            <td>
-                <button class="button button2"><a href="{{ myth.url }}">Learn more</a></button>
-            </td>
-        </tr>
-        {% endfor %}
+        <thead>
+            <tr>
+                <th>Myth</th>
+                <th>Synopsis</th>
+                <th>More info</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for myth in myths %}
+            <tr>
+                <td>{{ myth.title }}</td>
+                <td>{{ myth.synopsis }}</td>
+                <td>
+                    <button class="button button2"><a href="{{ myth.url }}">Learn more</a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 
     <h1 id="test"></h1>
