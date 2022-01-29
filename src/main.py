@@ -21,7 +21,9 @@ myths_list: List[Dict[str, str]] = [
     {'title': 'Birds are real', 'synopsis': 'Government literally 1984',
         'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1970', 'endyear': '1990'},
     {'title': 'Birds are fake', 'synopsis': 'Are you stupid',
-        'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1972', 'endyear': '1983'}
+        'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1972', 'endyear': '1983'},
+    {'title': 'Birds are cringe', 'synopsis': 'Are you sussy',
+        'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1979', 'endyear': '1994'},
 ]
 
 words: List[str] = 'defenestration amongus red chair fly'.split()
@@ -32,7 +34,7 @@ messages: List[str] = [
 
 @app.route('/')
 def index():
-    return render_template('index.html', myths=myths_list)
+    return render_template('index.html', myths=myths_list, years=range(1970, 1995))
 
 @app.route('/simple')
 def simple():
