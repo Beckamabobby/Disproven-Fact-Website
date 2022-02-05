@@ -148,36 +148,33 @@
 
 
     function processYearChange(year) {
+        function createMythRow(myth) {
+            function createButtonLink() {
+                const button = document.createElement("button")
+                button.append("learn more")
+                const anchor = document.createElement("a")
+                const href = document.createAttribute("href")
+                href.value = myth.url
+                anchor.setAttributeNode(href)
+                anchor.append(button)
+                return anchor
+            }
+            const tdTitle = document.createElement("td")
+            tdTitle.append(myth.title)
+            const tdSynopsis = document.createElement("td")
+            tdSynopsis.append(myth.synopsis)
+            const tdUrl = document.createElement("td")
+            tdUrl.append(createButtonLink())
+            const tr = document.createElement("tr")
+            tr.append(tdTitle, tdSynopsis, tdUrl)
+            return tr
+        }
+
         fetch('myths/' + year)
             .then(response => response.json())
             .then(myths => {
                 const tbody = document.getElementById("results-body")
-                myths.forEach(myth => {
-                    console.log('fetched', myth);
-                    console.log(myth.title);
-                    console.log(myth.startyear);
-                    const tr = document.createElement("tr")
-                    const tdTitle = document.createElement("td")
-                    const tdSynopsis = document.createElement("td")
-                    const tdUrl = document.createElement("td")
-                    const button = document.createElement("button")
-                    button.append("learn more")
-                    const anchor = document.createElement("a")
-                    const href = document.createAttribute("href")
-                    href.value = myth.url
-                    anchor.setAttributeNode(href)
-                    anchor.append(button)
-                    tdTitle.append(myth.title)
-                    tdSynopsis.append(myth.synopsis)
-                    tdUrl.append(anchor)
-                    tr.append(tdTitle, tdSynopsis, tdUrl)
-                    tbody.append(tr)
-                })
-                //     "endyear": "1990",
-                //     "startyear": "1970",
-                //     "synopsis": "Government literally 1984",
-                //     "title": "Birds are real",
-                //     "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                myths.forEach(myth => tbody.append(createMythRow(myth)))
             });
         console.log('after fetch')
         document.querySelectorAll("#results-body tr").forEach(row => row.remove())
