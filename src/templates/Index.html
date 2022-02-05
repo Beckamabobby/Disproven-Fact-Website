@@ -27,7 +27,7 @@
             text-align: center;
         }
 
-        .button {
+        button {
             background-color: aqua;
             color: black;
             transition-duration: 0.4s;
@@ -58,13 +58,12 @@
             font-size: 34px;
         }
 
-        a:link {
+        a {
             color: white;
             text-decoration: none;
         }
 
-        a:visited,
-        a:active {
+        a:visited, a:active {
             text-decoration: none;
         }
 
@@ -100,14 +99,15 @@
 </head>
 <body>
 <header>
-    <button class="button button1"><a href="https://forms.gle/J1Thc5r1d9mTvLA96">Submit a disproven fact you were
-        taught</a></button>
+    <a href="https://forms.gle/J1Thc5r1d9mTvLA96"><button class="button1">Submit a disproven fact you were
+        taught</button></a>
 </header>
 
 <div class="main">
-    <label>Select the year you graduated high school:</label>
+    <label>Select the year you graduated from high school:</label>
     <label for="years"></label>
     <select id="years" name="years" onChange="processYearChange(document.getElementById('years').value)">
+        <option value="Choose Year">Choose Year</option>
         {% for year in years %}
             <option value="{{ year }}">{{ year }}</option>
         {% endfor %}
@@ -122,15 +122,6 @@
             </tr>
         </thead>
         <tbody id="results-body">
-            {% for myth in myths %}
-            <tr>
-                <td>{{ myth.title }}</td>
-                <td>{{ myth.synopsis }}</td>
-                <td>
-                    <a href="{{ myth.url }}"><button class="button button2">Learn more</button></a>
-                </td>
-            </tr>
-            {% endfor %}
         </tbody>
     </table>
 
@@ -181,8 +172,5 @@
     }
 </script>
 
-<?php
-    $text = "PHP";
-    echo "I love $txt!";
-    ></body>
+</body>
 </html>
