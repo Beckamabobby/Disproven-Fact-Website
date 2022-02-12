@@ -107,7 +107,7 @@
     <label>Select the year you graduated from high school:</label>
     <label for="years"></label>
     <select id="years" name="years" onChange="processYearChange(document.getElementById('years').value)">
-        <option value="Choose Year">Choose Year</option>
+        <option id="year-prompt" value="Choose Year">Choose Year</option>
         {% for year in years %}
             <option value="{{ year }}">{{ year }}</option>
         {% endfor %}
@@ -161,6 +161,9 @@
             return tr
         }
 
+        const yearPrompt = document.getElementById("year-prompt");
+        if (yearPrompt)
+            yearPrompt.remove()
         fetch('myths/' + year)
             .then(response => response.json())
             .then(myths => {

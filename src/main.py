@@ -26,31 +26,14 @@ myths_list: List[Dict[str, str]] = [
         'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1979', 'endyear': '1994'},
 ]
 
-words: List[str] = 'defenestration amongus red chair fly'.split()
-messages: List[str] = [
-    'pay your taxes',
-    'i hate the irs'
-]
-
 @app.route('/')
 def index():
     return render_template('index.html', myths=myths_list, years=range(1970, 1995))
-
-@app.route('/simple')
-def simple():
-    return render_template('simple.html', word=choice(words))
-
-@app.route('/chat_messages')
-def chat_messages():
-    return render_template('chat_messages.html', messages=messages)
 
 @app.route('/myths/<graduation_year>')
 def myths(graduation_year):
     print(graduation_year)
     selected_myths = [myth for myth in myths_list if myth['startyear'] <= graduation_year <= myth['endyear']]
     return jsonify(selected_myths)
-
-#ooga booga
-
 
 app.run(debug=True)
