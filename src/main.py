@@ -12,7 +12,10 @@ db = SQLAlchemy(app)
 class Myth(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
-    url = db.Column(db.String)
+    synopsis = db.Column(db.String, nullable=False)
+    url = db.Column(db.String, nullable=False)
+    startyear = db.Column(db.Integer, nullable=False)
+    endyear = db.Column(db.Integer, nullable=False)
 
 
 db.create_all()
