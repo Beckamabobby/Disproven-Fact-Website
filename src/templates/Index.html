@@ -164,7 +164,7 @@
         const yearPrompt = document.getElementById("year-prompt");
         if (yearPrompt)
             yearPrompt.remove()
-        fetch('myths/' + year)
+        fetch('myths/' + year) // get the myths for the year using xhr
             .then(response => response.json())
             .then(myths => {
                 const tbody = document.getElementById("results-body")
