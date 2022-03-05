@@ -20,6 +20,9 @@ class Myth(db.Model):
 
 db.create_all()
 
+myths_db = Myth.query.all()
+
+
 myths_list: List[Dict[str, str]] = [
     {'title': 'Birds are real', 'synopsis': 'Government literally 1984',
         'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'startyear': '1970', 'endyear': '1990'},
