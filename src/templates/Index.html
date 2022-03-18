@@ -171,7 +171,7 @@
         }
 
         fetch('myths/' + year) // get the myths for the year using xhr
-            .then(response => response.json())
+            .then(response => response.json()) // returns the response body as JSON
             .then(processMyths);
         console.log('after fetch')
         document.querySelectorAll("#results-body tr").forEach(row => row.remove())
