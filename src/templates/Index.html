@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <meta charset="UTF-8"/>
     <title>Disproven Facts</title>
     <style>
         body {
             background-color: #444444;
+            /*font-family: 'Poppins', sans-serif;*/
         }
 
         header {
@@ -68,7 +72,6 @@
         }
 
         select {
-            font-size: 34px;
         }
 
         table {
@@ -107,7 +110,7 @@
     <label>Select the year you graduated from high school:</label>
     <label for="years"></label>
     <select id="years" name="years" onChange="processYearChange(document.getElementById('years').value)">
-        <option id="year-prompt" value="Choose Year">Choose Year</option>
+        <option id="year-prompt" value="Choose Year">      </option>
         {% for year in years %}
             <option value="{{ year }}">{{ year }}</option>
         {% endfor %}
@@ -124,15 +127,9 @@
         <tbody id="results-body">
         </tbody>
     </table>
-
-    <h1 id="test"></h1>
-
 </div>
 
 <script>
-    document.getElementById("test").innerHTML =
-        Math.floor(Math.random() * 2) + 1;
-
     //function validateForm() {
     //  let year = document.forms.value
     //}
@@ -171,7 +168,7 @@
         }
 
         fetch('myths/' + year) // get the myths for the year using xhr
-            .then(response => response.json())
+            .then(response => response.json()) // returns the response body as JSON
             .then(processMyths);
         console.log('after fetch')
         document.querySelectorAll("#results-body tr").forEach(row => row.remove())
