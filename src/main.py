@@ -8,6 +8,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myths.db'
 db = SQLAlchemy(app)
 
 
+user_myth = db.Table('user_myth',
+                     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+                     db.Column('myth_id', db.Integer, db.ForeignKey('myth.id'), primary_key=True)
+                     )
+
 class Myth(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
@@ -16,6 +21,14 @@ class Myth(db.Model):
     startyear = db.Column(db.Integer, nullable=False)
     endyear = db.Column(db.Integer, nullable=False)
 
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, nullable=False)
+
+# class UserMyth(db.Model):
+#     id      = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('tag.id'), primary_key=True),
+#     myth_id = db.Column(db.Integer, db.ForeignKey('page.id'), primary_key=True)
 
 db.create_all()
 
